@@ -31,6 +31,39 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
 
 
 
+/*
+////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+var servers = [];
+var queue = [];
+var guilds = [];
+var queueNames = [];
+var isPlaying = false;
+var dispatcher = null;
+var voiceChannel = null;
+var skipReq = 0;
+var skippers = [];
+var now_playing = [];
+/*
+\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////
+*/
+client.on('ready', () => {});
+console.log("Logged")
+var download = function(uri, filename, callback) {
+	request.head(uri, function(err, res, body) {
+		console.log('content-type:', res.headers['content-type']);
+		console.log('content-length:', res.headers['content-length']);
+
+		request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+	});
+};
+
 client.on('message', function(message) {
 	const member = message.member;
 	const mess = message.content.toLowerCase();
@@ -215,6 +248,7 @@ client.on('message', function(message) {
 		return str.toLowerCase().indexOf('youtube.com') > -1;
 	}
 });
+
   
 
 
