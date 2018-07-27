@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs")
-let points = JSON.parse(fs.readFileSync(`./typePTS.json`, `utf8`));
 let points = JSON.parse(fs.readFileSync('./typePTS.json', 'utf8')); // يقوم بقراءه ملف النقاط , والمسار حق النقاط
 var shortNumber = require('short-number');
 const client = new Discord.Client();
